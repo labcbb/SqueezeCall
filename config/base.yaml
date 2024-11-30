@@ -1,0 +1,124 @@
+accum_grad: 1
+ctc: crf
+ctc_conf:
+  ctc_blank_id: 0
+  reduce: true
+  use_focal_loss: false
+dataset: asr
+dataset_conf:
+  batch_conf:
+    batch_size: 4
+    batch_type: static
+  chunk_conf:
+    chunksize: 5000
+    overlap: 500
+  cycle: 2
+  fbank_conf:
+    dither: 0.1
+    frame_length: 25
+    frame_shift: 10
+    num_mel_bins: 80
+  filter_conf:
+    max_length: 40960
+    min_length: 10
+    token_max_length: 200
+    token_min_length: 1
+  resample_conf:
+    resample_rate: 16000
+  shuffle: true
+  shuffle_conf:
+    shuffle_size: 1500
+  sort: true
+  sort_conf:
+    sort_size: 500
+  spec_aug: false
+  spec_aug_conf:
+    max_f: 10
+    max_t: 20
+    num_f_mask: 0
+    num_t_mask: 5
+  speed_perturb: true
+decoder: bitransformer
+decoder_conf:
+  attention_heads: 4
+  dropout_rate: 0.1
+  linear_units: 2048
+  num_blocks: 3
+  positional_dropout_rate: 0.1
+  r_num_blocks: 3
+  self_attention_dropout_rate: 0.1
+  src_attention_dropout_rate: 0.1
+  use_sdpa: true
+dtype: bf16
+encoder: squeezeformer
+encoder_conf:
+  activation_type: swish
+  attention_dropout_rate: 0.0
+  attention_heads: 8
+  cnn_module_kernel: 31
+  encoder_dim: 512
+  feed_forward_dropout_rate: 0.0
+  input_dropout_rate: 0.0
+  input_layer: conv1d3_layer5_ln
+  intermediate_layers: '4'
+  normalize_before: true
+  num_blocks: 8
+  output_size: 512
+  pos_enc_layer_type: rel_pos
+  recover_idx: 7
+  reduce_idx: 3
+grad_clip: 4
+input_dim: 1
+joint: transducer_joint
+joint_conf:
+  activation: tanh
+  enc_output_size: 256
+  join_dim: 128
+  joint_mode: add
+  postjoin_linear: true
+  pred_output_size: 64
+  prejoin_linear: true
+log_interval: 200
+max_epoch: 10
+model: asr_model
+model_conf:
+  ctc_weight: 0.35
+  intermediate_ctc_weight: 0.3
+  length_normalized_loss: false
+  lsm_weight: 0.1
+  reverse_weight: 0.0
+optim: adam
+optim_conf:
+  lr: 0.0005
+output_dim: 7
+predictor: rnn
+predictor_conf:
+  bias: true
+  dropout: 0.1
+  embed_dropout: 0.1
+  embed_size: 64
+  hidden_size: 64
+  num_layers: 2
+  output_size: 64
+  rnn_type: lstm
+save_interval: 5000
+save_states: model_only
+scheduler: warmuplr
+scheduler_conf:
+  warmup_steps: 25000
+tokenizer: char
+tokenizer_conf:
+  bpe_path: null
+  is_multilingual: false
+  non_lang_syms_path: null
+  num_languages: 1
+  special_tokens:
+    <blank>: 0
+    <eos>: 5
+    <sos>: 5
+    <unk>: 6
+  split_with_space: false
+  symbol_table_path: data/dict/lang_char.txt
+train_engine: deepspeed
+use_amp: false
+vocab_size: 7
