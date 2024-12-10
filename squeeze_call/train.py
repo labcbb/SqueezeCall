@@ -17,6 +17,7 @@ from torch.utils.data import DataLoader
 
 logger = get_logger(__name__)
 
+sys.path.append('/home/share/huadjyin/home/cyclone_ops/users/ryl/code_repo/basenet/squeeze_call')
 from squeeze_call.utils.init_model import init_model
 from squeeze_call.utils.dataset import get_npz_dataloader
 
@@ -38,6 +39,9 @@ def get_grad_norm(params, scale=1):
     return total_norm
 
 def main(args):
+    args.data_dir = "/home/share/huadjyin/home/cyclone_ops/users/ryl/code_repo/basenet/squeeze_call/data"
+    args.config_path = "/home/share/huadjyin/home/cyclone_ops/users/ryl/code_repo/basenet/squeeze_call/config/base.yaml"
+
     logging.basicConfig(
         format="%(asctime)s - %(levelname)s - %(message)s",
         datefmt="%m/%d/%Y %H:%M:%S",

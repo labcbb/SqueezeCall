@@ -19,6 +19,10 @@ import torch
 import torch.utils.checkpoint as ckpt
 import logging
 
+import sys
+sys.path.append("/home/share/huadjyin/home/cyclone_ops/users/ryl/code_repo/basenet/squeeze_call")
+
+
 from squeeze_call.decoder_layer import DecoderLayer
 from squeeze_call.attention import MultiHeadedAttention, MultiHeadedCrossAttention
 from squeeze_call.positionwise_feed_forward import PositionwiseFeedForward

@@ -15,6 +15,11 @@
 #               Squeezeformer(https://github.com/upskyy/Squeezeformer)
 #               NeMo(https://github.com/NVIDIA/NeMo)
 
+import sys
+
+sys.path.append("/home/share/huadjyin/home/cyclone_ops/users/ryl/code_repo/basenet/squeeze_call")
+
+
 import torch
 import torch.nn as nn
 import numpy as np
