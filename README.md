@@ -14,6 +14,9 @@ pip install -r requirements.txt
 ## Data download
 Human raw data and basecall datasets (FAF04090, FAF09968, FAB42828) are available at https://github.com/nanopore-wgs-consortium/NA12878/blob/master/Genome.md; bacterial raw data and lambda phage data are available at https://github.com/marcpaga/nanopore_benchmark/tree/main/download; ONT chunk dataset are available at https://cdn.oxfordnanoportal.com/software/analysis/bonito/example_data_dna_r9.4.1_v0.zip.
 
+## Demo data
+
+The test data for this project can be downloaded from [10.5281/zenodo.14725006](https://zenodo.org/records/14725007)
 
 ## Data processing
 
